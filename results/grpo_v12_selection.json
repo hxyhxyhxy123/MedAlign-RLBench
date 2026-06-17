@@ -35,6 +35,5 @@
   "best_model": "grpo_checkpoint_480",
   "best_accuracy": 0.733,
   "delta_vs_sft_pp": 1.0333,
-  "beats_sft": true,
-  "claim_boundary": "Diagnostic in-distribution split only; not an official CMB leaderboard score."
+  "beats_sft": true
 }

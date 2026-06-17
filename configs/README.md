@@ -4,7 +4,7 @@
 
 | 目录/文件 | 说明 |
 | --- | --- |
-| `llamafactory/` | SFT、QLoRA、DPO、IPO/ORPO、red-flag 等 LLaMA-Factory 训练配置 |
+| `llamafactory/` | SFT、QLoRA、DPO、IPO/ORPO 等 LLaMA-Factory 训练配置 |
 | `deepspeed/zero2.json` | DeepSpeed ZeRO-2 配置 |
 | `mpo_recipe.yaml` | 自定义 MPO mixed objective 配置 |
 | `deploy_kvcache.yaml` | LoRA merge 和 KV Cache benchmark 配置 |

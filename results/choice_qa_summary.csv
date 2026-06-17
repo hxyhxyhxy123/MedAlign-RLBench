@@ -2,4 +2,3 @@ experiment,evaluation,total,base_accuracy,sft_accuracy,dpo_accuracy,mpo_or_best_
 CMB-val,medical choice,280,0.5714,0.6571,0.6536,0.6571,stage-1 evaluation
 C-Eval-medical,medical choice,90,0.6556,0.7000,0.7000,,medical subset
 CMB-test-3000-noleak,medical choice,3000,0.6767,0.7227,0.7227,0.7223,fixed internal noleak evaluation
-CMB-test-full,medical choice,11200,,0.7129,,,SFT full CMB-test evaluation

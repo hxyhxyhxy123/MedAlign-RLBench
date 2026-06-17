@@ -1,5 +1,0 @@
-model,risk_accuracy,emergency_recall,routine_specificity,routine_overtriage_rate,notes
-Base,0.6319,0.2639,1.0000,0.0000,low over-triage but misses emergencies
-SFT,0.5000,1.0000,0.0000,1.0000,high emergency recall with severe over-triage
-DPO,0.5000,1.0000,0.0000,1.0000,similar to SFT
-MPO,0.6667,1.0000,0.3333,0.6667,best mixed-risk balance among tested variants
