@@ -1,4 +1,4 @@
-# MedAlign-RLBench
+# 基于Qwen2.5-3B的中文医疗问答领域后训练
 
 基于 `Qwen2.5-3B-Instruct` 的中文医疗问答后训练项目。项目围绕医学选择题问答任务，完成数据处理、LoRA/QLoRA SFT、DPO/MPO 对照实验、verifiable GRPO 诊断实验、自动评测、LoRA 合并和 KV Cache 推理 benchmark。
 
