@@ -2,7 +2,6 @@
 
 基于 `Qwen2.5-3B-Instruct` 的中文医疗问答后训练项目。项目围绕医学选择题问答任务，完成数据处理、LoRA/QLoRA SFT、DPO/MPO 对照实验、verifiable GRPO 诊断实验、自动评测、LoRA 合并和 KV Cache 推理 benchmark。
 
-本仓库是整理后的 GitHub 发布版，只保留代码、配置、结果摘要和复现实验入口。原始数据、完整训练集、模型权重、LoRA adapter、完整预测文件和运行日志不进入 Git。
 
 ## 技术栈
 
