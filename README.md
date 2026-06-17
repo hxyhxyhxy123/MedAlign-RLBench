@@ -1,4 +1,4 @@
-# MedAlign-RLBench
+# 基于Qwen2.5-3B的中文医疗问答领域后训练
 
 面向中文医疗问答和红旗症状安全响应的 Qwen2.5-3B 后训练实验项目。项目以 `Qwen2.5-3B-Instruct` 为基座，围绕 CMB 医学选择题和红旗症状分诊场景，搭建了数据构建、LoRA/QLoRA SFT、DPO/MPO 偏好优化、verifiable GRPO 诊断实验、自动评测、LoRA 合并和 KV Cache 推理 benchmark 的完整流程。
 
