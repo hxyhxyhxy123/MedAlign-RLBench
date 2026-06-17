@@ -1,0 +1,4 @@
+concurrency,output_tokens,time_seconds,decode_tokens_per_second,peak_memory_gb
+1,256,3.99,64.13,5.87
+4,1024,4.65,220.12,5.87
+8,2048,4.62,443.14,5.87

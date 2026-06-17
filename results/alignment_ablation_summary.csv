@@ -1,0 +1,9 @@
+model,training_design,accuracy,delta_vs_sft_pp,conclusion
+SFT,stage-1 LoRA SFT,0.7227,0.00,main baseline
+DPO-final,preference alignment,0.7227,0.00,no gain over SFT
+MPO,mixed objective,0.7213,-0.13,ablation only
+Hard-DPO,SFT-wrong hard preference pairs,0.7210,-0.17,no held-out gain
+Hard-IPO,SFT-wrong hard preference pairs,0.7223,-0.03,near SFT
+RS-DPO,rejection sampling preference pairs,0.7223,-0.03,near SFT
+GRPO-v10,CMExam-style hard prompts,0.7100,-1.27,reward did not transfer
+GRPO-v12-diagnostic,CMB 8.2k/3k disjoint split,0.7330,1.03,in-distribution diagnostic gain

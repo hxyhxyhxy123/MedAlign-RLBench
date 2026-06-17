@@ -1,0 +1,65 @@
+seed: 42
+base_model: Qwen/Qwen2.5-3B-Instruct
+embedding_candidates:
+  primary: BAAI/bge-m3
+  optional_glm: THUDM/glm-4-9b-chat
+paths:
+  hf_home: /root/autodl-tmp/hf_cache
+  data_root: /root/autodl-tmp/qwen-med-align-auto/data
+  samples_dir: data/samples
+  processed_dir: data/processed
+  metadata_dir: data/metadata
+  llamafactory_data_dir: data/llamafactory
+
+storage_limits:
+  no_gpu_max_project_gb: 12
+  no_gpu_min_free_gb: 30
+
+datasets:
+  ceval_med:
+    type: hf_dataset
+    name: ceval/ceval-exam
+    configs:
+      - basic_medicine
+      - clinical_medicine
+      - physician
+    split_candidates: [val, validation, test, train]
+    purpose: medical exam query construction and evaluation
+    max_rows_no_gpu: 80
+  cmb:
+    type: hf_dataset
+    candidates:
+      - FreedomIntelligence/CMB
+      - FreedomIntelligence/CMB-Exam
+    split_candidates: [train, validation, test]
+    purpose: Chinese medical exam benchmark and SFT/DPO source
+    max_rows_no_gpu: 80
+  huatuo_sft:
+    type: hf_dataset
+    candidates:
+      - FreedomIntelligence/HuatuoGPT2-SFT-GPT4-140K
+      - FreedomIntelligence/HuatuoGPT-sft-data-v1
+    split_candidates: [train]
+    purpose: high-quality Chinese medical instruction tuning
+    max_rows_no_gpu: 120
+  disc_med_sft:
+    type: hf_dataset
+    candidates:
+      - Flmc/DISC-Med-SFT
+      - FudanDISC/DISC-Med-SFT
+    split_candidates: [train]
+    purpose: medical dialogue SFT supplement
+    max_rows_no_gpu: 120
+  medicalgpt_data:
+    type: hf_dataset
+    candidates:
+      - shibing624/medical
+      - shibing624/medical_dialogue
+    split_candidates: [train]
+    purpose: MedicalGPT-compatible medical instruction data
+    max_rows_no_gpu: 120
+
+manual_sets:
+  redflag_triage:
+    path: data/manual/redflag_triage_seed.jsonl
+    purpose: emergency safety triage seed and avoid-action evaluation

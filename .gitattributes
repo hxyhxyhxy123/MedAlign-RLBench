@@ -1,0 +1,9 @@
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.html text eol=lf
+Makefile text eol=lf

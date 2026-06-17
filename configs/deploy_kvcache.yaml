@@ -1,0 +1,18 @@
+model: /root/autodl-tmp/qwen-med-runs/merged/qwen25-3b-med-dpo
+adapter_general: /root/autodl-tmp/qwen-med-runs/general-med-lora
+adapter_redflag: /root/autodl-tmp/qwen-med-runs/redflag-triage-lora
+engine: vllm
+dtype: bfloat16
+gpu_memory_utilization: 0.85
+benchmark:
+  prompts:
+    - "患者突发胸痛伴大汗、恶心，持续20分钟，请给出分诊建议。"
+    - "孩子发热38.2度，没有抽搐，精神尚可，应该如何处理？"
+    - "请解释高血压患者为什么不能自行停药。"
+  max_new_tokens: 256
+  concurrency: [1, 4, 8]
+metrics:
+  - first_token_latency_ms
+  - decode_tokens_per_second
+  - total_latency_ms
+  - peak_gpu_memory_gb

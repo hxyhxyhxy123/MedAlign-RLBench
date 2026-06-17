@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+*.token
+
+# Large data and generated artifacts
+data/
+runs/
+outputs/
+checkpoints/
+baselines/
+wandb/
+hf_cache/
+qwen-med-runs/
+qwen-med-data/
+
+# Model weights and caches
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+*.arrow
+*.parquet
+*.pkl
+
+# Logs and archives
+*.log
+*.tmp
+*.bak
+*.zip
+*.tar
+*.tar.gz
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

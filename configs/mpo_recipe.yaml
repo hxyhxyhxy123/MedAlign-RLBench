@@ -1,0 +1,30 @@
+base_model: Qwen/Qwen2.5-3B-Instruct
+sft_adapter: /root/autodl-tmp/qwen-med-runs/general-med-lora
+dpo_adapter: /root/autodl-tmp/qwen-med-runs/general-med-dpo-lora
+data:
+  preference: data/processed/stage1_med_mpo_train.jsonl
+  sft_replay: data/processed/stage1_med_sft_train.jsonl
+objective:
+  dpo_weight: 1.0
+  sft_weight: 0.25
+  safety_reward_weight: 0.5
+  beta: 0.1
+train:
+  finetuning_type: lora
+  lora_rank: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  cutoff_len: 2048
+  learning_rate: 5.0e-6
+  max_steps: 1000
+  preference_batch_size: 1
+  sft_batch_size: 1
+  gradient_accumulation_steps: 8
+  max_preference_samples: 50000
+  max_sft_samples: 50000
+  logging_steps: 10
+  save_steps: 200
+  output_dir: /root/autodl-tmp/qwen-med-runs/general-med-mpo-lora
+notes:
+  - MPO is implemented as a lightweight mixed objective trainer.
+  - Loss = DPO-style chosen/rejected margin + SFT replay + red-flag safety preference upweighting.

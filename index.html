@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedAlign-RLBench</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18202a;
+      --muted: #5f6b7a;
+      --line: #d9e0e8;
+      --blue: #1f6feb;
+      --green: #238636;
+      --bg: #f6f8fa;
+      --panel: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .hero {
+      padding: 56px 0 36px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+    main {
+      padding: 28px 0 56px;
+    }
+    section {
+      margin-top: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    th {
+      background: #f0f3f7;
+      font-weight: 650;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfcfe;
+    }
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      color: var(--blue);
+    }
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    code {
+      background: #eef2f6;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    a { color: var(--blue); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <h1>MedAlign-RLBench</h1>
+      <p class="subtitle">基于 Qwen2.5-3B 的中文医疗问答后训练项目，覆盖 SFT、DPO/MPO 对照、verifiable GRPO 诊断、红旗症状安全评测和 KV Cache 推理 benchmark。</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section>
+      <h2>核心指标</h2>
+      <div class="grid">
+        <div class="metric"><strong>72.27%</strong><span>CMB-test 3000 noleak SFT</span></div>
+        <div class="metric"><strong>73.30%</strong><span>GRPO v12 diagnostic best</span></div>
+        <div class="metric"><strong>+10.48 pp</strong><span>GRPO v12 多选题提升</span></div>
+        <div class="metric"><strong>443 tokens/s</strong><span>KV Cache concurrency-8 decode</span></div>
+      </div>
+    </section>
+    <section>
+      <h2>医学选择题结果</h2>
+      <table>
+        <thead>
+          <tr><th>评测集</th><th>Base</th><th>SFT</th><th>DPO</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>CMB-val</td><td>57.14%</td><td>65.71%</td><td>65.36%</td><td>280 题</td></tr>
+          <tr><td>C-Eval 医疗子集</td><td>65.56%</td><td>70.00%</td><td>70.00%</td><td>90 题</td></tr>
+          <tr><td>CMB-test 3000 noleak</td><td>67.67%</td><td>72.27%</td><td>72.27%</td><td>固定内部评测</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>GRPO 诊断实验</h2>
+      <p>v12 使用 CMB 11200 题构造严格题面去重的 <code>8.2k/3k</code> 同分布诊断切分，最佳 checkpoint-480 从 SFT 的 72.27% 提升到 73.30%。该结果用于验证数据分布问题，不作为官方 leaderboard 成绩。</p>
+    </section>
+    <section>
+      <h2>代码入口</h2>
+      <p>训练配置见 <code>configs/</code>，核心脚本见 <code>scripts/</code>，关键实验入口见 <code>experiments/</code>，公开指标摘要见 <code>results/</code>。</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+### model
+model_name_or_path: Qwen/Qwen2.5-3B-Instruct
+trust_remote_code: true
+flash_attn: auto
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+
+### dataset
+dataset_dir: /root/autodl-tmp/qwen-med-align-auto/data/llamafactory
+dataset: stage1_redflag_sft
+template: qwen
+cutoff_len: 2048
+max_samples: 2000
+overwrite_cache: true
+preprocessing_num_workers: 2
+
+### output
+output_dir: /root/autodl-tmp/qwen-med-runs/redflag-triage-lora
+logging_steps: 5
+save_steps: 50
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+bf16: true
+ddp_timeout: 180000000

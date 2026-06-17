@@ -1,0 +1,40 @@
+{
+  "baseline_sft_accuracy": 0.7226666666666667,
+  "models": {
+    "grpo_checkpoint_240": {
+      "accuracy": 0.729,
+      "single_accuracy": 0.7538175046554935,
+      "multi_accuracy": 0.5174603174603175,
+      "invalid_prediction_count": 2
+    },
+    "grpo_checkpoint_360": {
+      "accuracy": 0.7293333333333333,
+      "single_accuracy": 0.7541899441340782,
+      "multi_accuracy": 0.5174603174603175,
+      "invalid_prediction_count": 2
+    },
+    "grpo_checkpoint_480": {
+      "accuracy": 0.733,
+      "single_accuracy": 0.7579143389199255,
+      "multi_accuracy": 0.5206349206349207,
+      "invalid_prediction_count": 2
+    },
+    "grpo_checkpoint_600": {
+      "accuracy": 0.7303333333333333,
+      "single_accuracy": 0.7549348230912477,
+      "multi_accuracy": 0.5206349206349207,
+      "invalid_prediction_count": 2
+    },
+    "grpo_final": {
+      "accuracy": 0.7303333333333333,
+      "single_accuracy": 0.7549348230912477,
+      "multi_accuracy": 0.5206349206349207,
+      "invalid_prediction_count": 2
+    }
+  },
+  "best_model": "grpo_checkpoint_480",
+  "best_accuracy": 0.733,
+  "delta_vs_sft_pp": 1.0333,
+  "beats_sft": true,
+  "claim_boundary": "Diagnostic in-distribution split only; not an official CMB leaderboard score."
+}
